@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate, useParams } from 'react-router-dom'
 import { useSelector,useDispatch } from 'react-redux';
 import {Row,Col,ListGroup,Image,Button,Form,Card} from "react-bootstrap";
 import Message from '../components/Message';
-import { addToCart } from '../actions/cartActions';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 
 const CartScreen = () => {
   const {id } = useParams();
@@ -24,7 +24,7 @@ if(productId){
   },[dispatch,productId,qty])
 
   const removeFromCartHandler = (id)=>{
-
+         dispatch(removeFromCart(id))
   }
 
   const checkoutHandler = ()=>{
@@ -85,7 +85,7 @@ if(productId){
             ${cartItems.reduce((acc,item)=>acc+item.qty*item.price,0).toFixed(2)}
           </ListGroup.Item>
           <ListGroup.Item>
-            <Button type='button' className='btn-block' disabled={cartItems.length===0} onclick={checkoutHandler}>
+            <Button type='button' className='btn-block' disabled={cartItems.length===0} onClick={checkoutHandler}>
              Proceed to Checkout
             </Button>
           </ListGroup.Item>
