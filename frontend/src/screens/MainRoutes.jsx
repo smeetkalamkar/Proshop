@@ -4,6 +4,7 @@ import CartScreen from './CartScreen'
 import HomeScreen from './HomeScreen'
 import LoginScreen from './LoginScreen'
 import ProductScreen from './ProductScreen'
+import RegisterScreen from './RegisterScreen'
 const MainRoutes = () => {
   return (
     <Routes>
@@ -12,7 +13,7 @@ const MainRoutes = () => {
     <Route path={`/cart/:id`} element={<CartScreen/>} />
     <Route path={`/cart`} element={<CartScreen/>} />
     <Route path={`/login`} element={<LoginScreen/>} />
-
+    <Route path={`/register`} element={<RegisterScreen/>} />
     </Routes>
   )
 }
